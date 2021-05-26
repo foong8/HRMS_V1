@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <nav class="navbar bg-dark text-light">
+        <span class="navbar-text">Summary</span>
+    </nav>
+
+    <div class="container-fluid">
+
+        <div style="margin-top:30px;">
+            <div class="container">
+                <div class="row" style=margin-top:30px;">
+                    <div class="col-sm">
+                        <div class="card">
+                            <div class="card-header bg-warning">
+                                <h2>Total Count of Leave Pending Approve</h2>
+                            </div>
+                            <div class="card-body">
+                                <h1>{{LeavePendingApprove}}</h1>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row" style=margin-top:30px;">
+                    <div class="col-sm">
+                        <div class="card">
+                            <div class="card-header bg-info">
+                                <h2>Total Count of Active Employee</h2>
+                            </div>
+                            <div class="card-body">
+                                <h1>{{CountEmployee}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="card">
+                            <div class="card-header bg-info">
+                                <h2>Total Count of Country</h2>
+                            </div>
+                            <div class="card-body">
+                                <h1>{{CountTotalCountry}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style=margin-top:30px;">
+                    <div class="col-sm">
+                        <div class="card">
+                            <div class="card-header bg-secondary">
+                                <h2>Total Count of Annual Country Link Directory </h2>
+                            </div>
+                            <div class="card-body">
+                                <h1>{{AnnualCLD}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="card">
+                            <div class="card-header bg-secondary">
+                                <h2>Total Count of Quarter Country Link Directory</h2>
+                            </div>
+                            <div class="card-body">
+                                <h1>{{QuarterCLD}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="card">
+                            <div class="card-header bg-secondary">
+                                <h2>Total Count of Monthly Country Link Directory</h2>
+                            </div>
+                            <div class="card-body">
+                                <h1>{{MonthCLD}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+{% endblock content %}
+
+{% block js%}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.24/af-2.3.6/b-1.7.0/b-colvis-1.7.0/b-html5-1.7.0/cr-1.5.3/fc-3.3.2/fh-3.1.8/sb-1.0.1/sp-1.2.2/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.24/af-2.3.6/b-1.7.0/b-colvis-1.7.0/b-html5-1.7.0/cr-1.5.3/fc-3.3.2/fh-3.1.8/sb-1.0.1/sp-1.2.2/datatables.min.js"></script>
+
+    {% load static %}
+    <script src="{% static 'js/custom_tabledata.js' %}"></script>
+
+{% endblock js%}

@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <nav class="navbar bg-dark text-light">
+        <span class="navbar-text">Leave Historical Records</span>
+    </nav>
+
+    <div class="container">
+        <div class="row" style="margin-top:10px">
+            <div class="col-sm-4">
+                <a class="btn btn-success" href="{% url 'employees:staff_cre_leave' %}">Apply Leave</a>
+            </div>
+        </div>
+
+        <div style="margin-top:10px;">
+            <div class="card">
+                <div class="card-header bg-warning">
+                    <h2>Pending Approval</h2>
+                </div>
+                <div class="card-body">
+                    <table id="table_id" class="table table-hover">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Action</th>
+                                <th>Leave Status</th>
+                                <th>Leave Type</th>
+                                <th>Leave Start Date</th>
+                                <th>Leave End Date</th>
+                                <th>Leave Message</th>
+                                <th>Leave Created At</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for instance in object.leave_pending %}
+                                <tr>
+                                    <td class="col-1">
+                                        <a class='btn btn-danger btn-sm text-dark' href="{% url 'employees:staff_upd_leave' instance.pk %}">Cancel</a>
+                                    </td>
+                                    <td class="col-1"> <span class="badge bg-warning text-dark">{{ instance.get_leave_status_display|title }} </span></td>
+                                    <td class="col-1"> {{ instance.get_leave_type_display|title }} </td>
+                                    <td class="col-1"> {{ instance.leave_start_date }} </td>
+                                    <td class="col-1"> {{ instance.leave_end_date }} </td>
+                                    <td class="col-1"> {{ instance.leave_message }} </td>
+                                    <td class="col-1"> {{ instance.created_at }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top:30px;">
+            <div class="card">
+                <div class="card-header bg-success">
+                    <h2>Approved</h2>
+                </div>
+                <div class="card-body">
+                    <table id="table_id2" class="table table-hover">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Leave Status</th>
+                                <th>Leave Type</th>
+                                <th>Leave Start Date</th>
+                                <th>Leave End Date</th>
+                                <th>Leave Message</th>
+                                <th>Leave Created At</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for instance in object.leave_approved %}
+                                <tr>
+                                    <td class="col-1"> <span class="badge bg-success text-dark">{{ instance.get_leave_status_display|title }}</span> </td>
+                                    <td class="col-1"> {{ instance.get_leave_type_display|title }} </td>
+                                    <td class="col-1"> {{ instance.leave_start_date }} </td>
+                                    <td class="col-1"> {{ instance.leave_end_date }} </td>
+                                    <td class="col-1"> {{ instance.leave_message }} </td>
+                                    <td class="col-1"> {{ instance.created_at }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div clas="row" style="margin-top:30px;">
+            <div class="card">
+                <div class="card-header bg-danger">
+                    <h2>Rejected</h2>
+                </div>
+                <div class="card-body">
+                    <table id="table_id3" class="table table-hover">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Leave Status</th>
+                                <th>Leave Type</th>
+                                <th>Leave Start Date</th>
+                                <th>Leave End Date</th>
+                                <th>Leave Message</th>
+                                <th>Leave Created at</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for instance in object.leave_canceled %}
+                                <tr>
+                                    <td class="col-1"> <span class="badge bg-danger text-dark">{{ instance.get_leave_status_display|title }}</span> </td>
+                                    <td class="col-1"> {{ instance.get_leave_type_display|title }} </td>
+                                    <td class="col-1"> {{ instance.leave_start_date }} </td>
+                                    <td class="col-1"> {{ instance.leave_end_date }} </td>
+                                    <td class="col-1"> {{ instance.leave_message }} </td>
+                                    <td class="col-1"> {{ instance.created_at }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block js%}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.24/af-2.3.6/b-1.7.0/b-colvis-1.7.0/b-html5-1.7.0/cr-1.5.3/fc-3.3.2/fh-3.1.8/sb-1.0.1/sp-1.2.2/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.24/af-2.3.6/b-1.7.0/b-colvis-1.7.0/b-html5-1.7.0/cr-1.5.3/fc-3.3.2/fh-3.1.8/sb-1.0.1/sp-1.2.2/datatables.min.js"></script>
+
+    {% load static %}
+    <script src="{% static 'js/custom_tabledata.js' %}"></script>
+{% endblock js%}

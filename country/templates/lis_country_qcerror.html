@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <nav class="navbar bg-dark text-light">
+        <span class="navbar-text">QC ERROR</span>
+    </nav>
+
+    <div class="container">
+
+        <div style="margin-top:10px;">
+            <div class="card" style="margin-top:10px;">
+                <div class="card-header bg-warning">
+                    <h2>Country Operation Yesterday</h2>
+                </div>
+                <div class="card-body">
+                    <table  class="table table-hover">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Country Code</th>
+                                <th>Error</th>
+                                <th>Files</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td class="col-1">HK</td>
+                                <td class="col-1"><span class="badge bg-danger text-dark"> ERROR </span></td>
+                                <td class="col-1">BF</td>
+                            </tr>
+                            <tr>
+                                <td class="col-1">MY</td>
+                                <td class="col-1"><span class="badge bg-danger text-dark"> ERROR </span></td>
+                                <td class="col-1">DG</td>
+                            </tr>
+                            <tr>
+                                <td class="col-1">SG</td>
+                                <td class="col-1"><span class="badge bg-danger text-dark"> ERROR </span></td>
+                                <td class="col-1">NH</td>
+                            </tr>
+                            <tr>
+                                <td class="col-1">TH</td>
+                                <td class="col-1"><span class="badge bg-danger text-dark"> ERROR </span></td>
+                                <td class="col-1">QO</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top:10px;">
+            <div class="card" style="margin-top:10px;">
+                <div class="card-header bg-danger">
+                    <h2>Country Operation More Than One Days</h2>
+                </div>
+                <div class="card-body">
+                    <table  class="table table-hover">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Country Code</th>
+                                <th>Error</th>
+                                <th>Files</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td class="col-1">HK</td>
+                                <td class="col-1"><span class="badge bg-danger text-dark"> ERROR </span></td>
+                                <td class="col-1">JKL</td>
+                            </tr>
+                            <tr>
+                                <td class="col-1">MY</td>
+                                <td class="col-1"><span class="badge bg-danger text-dark"> ERROR </span></td>
+                                <td class="col-1">QOP</td>
+                            </tr>
+                            <tr>
+                                <td class="col-1">SG</td>
+                                <td class="col-1"><span class="badge bg-danger text-dark"> ERROR </span></td>
+                                <td class="col-1">LION</td>
+                            </tr>
+                            <tr>
+                                <td class="col-1">TH</td>
+                                <td class="col-1"><span class="badge bg-danger text-dark"> ERROR </span></td>
+                                <td class="col-1">ABC</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock content %}
+
+{% block js%}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.24/af-2.3.6/b-1.7.0/b-colvis-1.7.0/b-html5-1.7.0/cr-1.5.3/fc-3.3.2/fh-3.1.8/sb-1.0.1/sp-1.2.2/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.24/af-2.3.6/b-1.7.0/b-colvis-1.7.0/b-html5-1.7.0/cr-1.5.3/fc-3.3.2/fh-3.1.8/sb-1.0.1/sp-1.2.2/datatables.min.js"></script>
+
+    {% load static %}
+    <script src="{% static 'js/custom_tabledata.js' %}"></script>
+
+    <script>
+        var dt = new Date();
+        document.getElementById("datetime").innerHTML = dt.toLocaleString();
+    </script>
+
+{% endblock js%}

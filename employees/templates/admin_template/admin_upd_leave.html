@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container col-sm-6">
+        <div class="card">
+            <div class="card-header bg-muted">
+                <h4><strong>Total Leave Balance as of Today for {{ employeeleave.user.employeepersonalinfo_user.first_name}} </strong></h4>
+            </div>
+            <div class="card-body">
+                <h4 id="total_count_leave_bal">{{ employeeleave.total_count_leave_balance }}</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="container col-sm-6">
+        <div class="card" style="margin-top:10px">
+            <div class="card-header bg-muted">
+                <h4><strong>Are you want to approve this leave?</strong></h4>
+
+            </div>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <div class="card-body bg-secondary text-dark">
+                    <button class='btn btn-success' type="submit" name="approve" id="btn-approve">Approve</button>
+                    <button class='btn btn-danger' type="submit" name="cancel" id="btn-cancel">Reject</button>
+                    <a class="btn btn-primary" href="{% url 'employees:admin_list_leave_management'%}">Back to previous page</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block js %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {% load static %}
+    <script src="{% static 'js/check_leave_balance.js' %}"></script>
+{% endblock %}

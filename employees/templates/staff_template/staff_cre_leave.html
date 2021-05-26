@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <div class="container col-sm-6">
+        <div class="card">
+            <div class="card-header bg-muted">
+                <h4><strong>Total Leave Balance as of Today</strong></h4>
+            </div>
+            <div class="card-body">
+                <h4 id="total_count_leave_bal">{{ employeeleave.total_count_leave_balance }}</h4>
+            </div>
+        </div>
+    </div>
+    <div class="container col-sm-6">
+        <div class="card" style="margin-top:10px">
+            <div class="card-header bg-muted">
+                <h4><strong>Apply Leave: </strong></h4>
+            </div>
+            <div class="card-body bg-muted">
+                <a class="btn btn-primary" href="{% url 'employees:staff_lis_leave' %}">Back to Leave List</a>
+            </div>
+            <div class="card-body bg-secondary text-dark">
+                <form method="POST">
+                    {% crispy form %}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block js %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {% load static %}
+    <script src="{% static 'js/staff_check_leave_balance.js' %}"></script>
+{% endblock %}

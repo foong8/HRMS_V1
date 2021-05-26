@@ -1,0 +1,21 @@
+{% block head_js %}
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static '/css/sidebars.css' %}">
+{% endblock head_js %}
+
+<body>
+    <div id="_sidebar" class="sidebar bg-dark navbar-dark">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="{% url 'logout' %}"><i class="fa fa-car" aria-hidden="true"> Log Out</i></a>
+        <a href="{% url 'employees:staff_upd_personalinfo' request.user.employeepersonalinfo_user.pk %}"><i class="fa fa-car" aria-hidden="true"></i>Personal Profile</a>
+        <a href="{% url 'employees:staff_lis_leave' %}"><i class="fa fa-envelope-open" aria-hidden="true"></i> Leave</a>
+        <a href="{% url 'employees:admin_lis_country_base_info' %}"><i class="fa fa-envelope-open" aria-hidden="true"></i>Country Base Info</a>
+        <a href="{% url 'employees:admin_lis_country_assignment' %}"><i class="fa fa-envelope-open" aria-hidden="true"></i>Country Assignment</a>
+        <a href="{% url 'employees:admin_lis_country_link_directory' %}"><i class="fa fa-envelope-open" aria-hidden="true"></i>Country Link Directory</a>
+        <a href="{% url 'employees:admin_lis_country_operation' %}"><i class="fa fa-envelope-open" aria-hidden="true"></i>Country Operation</a>
+        <a href="{% url 'employees:admin_lis_country_qcerror' %}"><i class="fa fa-envelope-open" aria-hidden="true"></i>QC Error</a>
+        <a href="{% url 'employees:admin_lis_y_filedaily' %}"><i class="fa fa-envelope-open" aria-hidden="true"></i>Daily Y-Files</a>
+        <a href="{% url 'employees:employee_handbook' %}"><i class="fa fa-envelope-open" aria-hidden="true"></i>Handbook</a>
+    </div>
+</body>
+

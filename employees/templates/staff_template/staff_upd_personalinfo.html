@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <nav class="navbar bg-dark text-light">
+        <span class="navbar-text">Personal Info</span>
+    </nav>
+    <div class="container col-sm-4">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button class='btn btn-success' type="submit" style="margin-top:10px">Update</button>
+        </form>
+    </div>
+{% endblock content %}

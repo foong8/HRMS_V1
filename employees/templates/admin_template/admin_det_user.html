@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class='nav-link' href="{% url 'employees:admin_lis_user' %}">Back to Users List</a></li>
+                <li class="nav-item"><a class='nav-link' href="{% url 'employees:admin_cre_user' %}">Create New User</a></li>
+                <li class="nav-item"><a class='nav-link' href="{% url 'employees:admin_upd_emppersonalinfo' object.pk %}">Personal Info</a></li>
+                <li class="nav-item"><a class='nav-link' href="{% url 'employees:admin_upd_empinfo' object.pk %}">Employment Info</a></li>
+                <li class="nav-item"><a class='nav-link' href="{% url 'employees:admin_upd_empleave' object.pk %}">Employee Leave</a></li>
+                <li class="nav-item"><a class='nav-link' href="#">Assigned Country(s)</a></li>
+                <li class="nav-item"><a class='nav-link' href="#">Assigned Task(s)</a></li>
+            </ul>
+        </div>
+    </nav>
+{% endblock content%}

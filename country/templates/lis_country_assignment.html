@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <nav class="navbar bg-dark text-light">
+        <span class="navbar-text">Country Assignment</span>
+    </nav>
+
+    <div class="container">
+
+        <div style="margin-top:10px;">
+            <div class="card">
+                <div class="card-header bg-warning">
+                    <h2>Country Assignment</h2>
+                </div>
+                <div class="card-body">
+                    <table id="table_id" class="table table-hover">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Country Code</th>
+                                <th>Actual</th>
+                                <th>Shadow 1</th>
+                                <th>Shadow 2</th>
+                                <th>Shadow 3</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for instance in object %}
+                                <tr>
+                                    <td class="col-1">{{ instance.country_code }} </td>
+                                    <td class="col-1"> {{ instance.country_actual.employeepersonalinfo_user.first_name }} </td>
+                                    <td class="col-1"> {{ instance.country_shadow1.employeepersonalinfo_user.first_name }} </td>
+                                    <td class="col-1"> {{ instance.country_shadow2.employeepersonalinfo_user.first_name }} </td>
+                                    <td class="col-1"> {{ instance.country_shadow3.employeepersonalinfo_user.first_name }} </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block js%}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.24/af-2.3.6/b-1.7.0/b-colvis-1.7.0/b-html5-1.7.0/cr-1.5.3/fc-3.3.2/fh-3.1.8/sb-1.0.1/sp-1.2.2/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.24/af-2.3.6/b-1.7.0/b-colvis-1.7.0/b-html5-1.7.0/cr-1.5.3/fc-3.3.2/fh-3.1.8/sb-1.0.1/sp-1.2.2/datatables.min.js"></script>
+
+    {% load static %}
+    <script src="{% static 'js/custom_tabledata.js' %}"></script>
+{% endblock js%}

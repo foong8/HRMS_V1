@@ -1,0 +1,13 @@
+{% include 'admin_template/admin_det_user.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <p style="font-size:2.5vw"><strong>Update Personal Info for  {{ object }} </strong></p>
+    <div class="container col-sm-4">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button class='btn btn-success' type="submit" style="margin-top:10px">Update</button>
+        </form>
+    </div>
+{% endblock content %}

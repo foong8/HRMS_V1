@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <nav class="navbar bg-dark text-light">
+        <span class="navbar-text">Country Operation</span>
+    </nav>
+
+    <div class="container">
+
+        <div style="margin-top:10px;">
+            <div class="card">
+                <div class="card-body">
+                    <a href="#" class="btn btn-sm bg-warning">Click here to run Conversion Section A</a>
+                    <a href="#" class="btn btn-sm bg-secondary">Click here to run Conversion Section B</a>
+                    <a href="#" class="btn btn-sm bg-info">Click here to run Conversion Section C</a>
+                </div>
+            </div>
+            <div class="card" style="margin-top:10px;">
+                <div class="card-header bg-primary">
+                    <h2>Country Operation as of <span id="datetime"></span></h2>
+                </div>
+                <div class="card-body">
+                    <table  class="table table-hover">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Country Code</th>
+                                <th>Status</th>
+                                <th>Actual</th>
+                                <th>Shadow 1</th>
+                                <th>Shadow 2</th>
+                                <th>Shadow 3</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td class="col-1">HK</td>
+                                <td class="col-1"><span class="badge bg-success text-dark"> MATCH </span></td>
+                                <td class="col-1"> ABF </td>
+                                <td class="col-1"> ABF </td>
+                                <td class="col-1"> </td>
+                                <td class="col-1"> </td>
+                            </tr>
+                            <tr>
+                                <td class="col-1">MY</td>
+                                <td class="col-1"><span class="badge bg-danger text-dark"> UNMATCH </span></td>
+                                <td class="col-1"> HGF </td>
+                                <td class="col-1"> HF </td>
+                                <td class="col-1"> </td>
+                                <td class="col-1"> </td>
+                            </tr>
+                            <tr>
+                                <td class="col-1">SG</td>
+                                <td class="col-1"><span class="badge bg-success text-dark"> MATCH </span></td>
+                                <td class="col-1"> QS </td>
+                                <td class="col-1"> QS </td>
+                                <td class="col-1"> </td>
+                                <td class="col-1"> </td>
+                            </tr>
+                            <tr>
+                                <td class="col-1">TH</td>
+                                <td class="col-1"><span class="badge bg-success text-dark"> MATCH </span></td>
+                                <td class="col-1"> SC </td>
+                                <td class="col-1"> CS </td>
+                                <td class="col-1"> </td>
+                                <td class="col-1"> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block js%}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.24/af-2.3.6/b-1.7.0/b-colvis-1.7.0/b-html5-1.7.0/cr-1.5.3/fc-3.3.2/fh-3.1.8/sb-1.0.1/sp-1.2.2/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.24/af-2.3.6/b-1.7.0/b-colvis-1.7.0/b-html5-1.7.0/cr-1.5.3/fc-3.3.2/fh-3.1.8/sb-1.0.1/sp-1.2.2/datatables.min.js"></script>
+
+    {% load static %}
+    <script src="{% static 'js/custom_tabledata.js' %}"></script>
+
+    <script>
+        var dt = new Date();
+        document.getElementById("datetime").innerHTML = dt.toLocaleString();
+    </script>
+
+{% endblock js%}

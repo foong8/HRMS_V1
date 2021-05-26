@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <nav class="navbar bg-dark text-light">
+        <span class="navbar-text">Country Link Directory</span>
+    </nav>
+
+    <div class="container">
+
+        <div style="margin-top:10px;">
+
+            <div class="card">
+                <div class="card-header bg-warning">
+                    <h2>Country Link Directory - Annually</h2>
+                </div>
+                <div class="card-body">
+                    <table id="table_id" class="table table-hover">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Country Code</th>
+                                <th>File Type</th>
+                                <th>Remarks</th>
+                                <th>isMarco</th>
+                                <th>Column Update</th>
+                                <th>Topic</th>
+                                <th>Url</th>
+                                <th>2021</th>
+                                <th>2022</th>
+                                <th>2023</th>
+                                <th>2024</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for instance in AnnualCLD %}
+                                <tr>
+                                    <td class="col-1">{{ instance.country_code }} </td>
+                                    <td class="col-1"> {{ instance.file_type }} </td>
+                                    <td class="col-1"> {{ instance.remarks }} </td>
+                                    <td class="col-1">{{ instance.isMarco }} </td>
+                                    <td class="col-1"> {{ instance.column_update }} </td>
+                                    <td class="col-1"> {{ instance.topic }} </td>
+                                    <td class="col-1"> {{ instance.url }} </td>
+                                    <td class="col-1">{{ instance.year_1 }} </td>
+                                    <td class="col-1"> {{ instance.year_2 }} </td>
+                                    <td class="col-1"> {{ instance.year_3 }} </td>
+                                    <td class="col-1"> {{ instance.year_4 }} </td>
+
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top:10px;">
+
+            <div class="card">
+                <div class="card-header bg-warning">
+                    <h2>Country Link Directory - Quarterly</h2>
+                </div>
+                <div class="card-body">
+                    <table id="table_id3" class="table table-hover">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Country Code</th>
+                                <th>File Type</th>
+                                <th>Remarks</th>
+                                <th>isMarco</th>
+                                <th>Column Update</th>
+                                <th>Topic</th>
+                                <th>Url</th>
+                                <th>2021 Q1</th>
+                                <th>2021 Q2</th>
+                                <th>2021 Q3</th>
+                                <th>2021 Q4</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for instance in QuarterCLD %}
+                                <tr>
+                                    <td class="col-1">{{ instance.country_code }} </td>
+                                    <td class="col-1"> {{ instance.file_type }} </td>
+                                    <td class="col-1"> {{ instance.remarks }} </td>
+                                    <td class="col-1">{{ instance.isMarco }} </td>
+                                    <td class="col-1"> {{ instance.column_update }} </td>
+                                    <td class="col-1"> {{ instance.topic }} </td>
+                                    <td class="col-1"> {{ instance.url }} </td>
+                                    <td class="col-1">{{ instance.quarter_1 }} </td>
+                                    <td class="col-1"> {{ instance.quarter_2 }} </td>
+                                    <td class="col-1"> {{ instance.quarter_3 }} </td>
+                                    <td class="col-1">{{ instance.quarter_4}} </td>
+
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top:10px;">
+
+            <div class="card">
+                <div class="card-header bg-warning">
+                    <h2>Country Link Directory - Monthly</h2>
+                </div>
+                <div class="card-body">
+                    <table id="table_id2" class="table table-hover">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Country Code</th>
+                                <th>File Type</th>
+                                <th>Remarks</th>
+                                <th>isMarco</th>
+                                <th>Column Update</th>
+                                <th>Topic</th>
+                                <th>Url</th>
+                                <th>2021 M1</th>
+                                <th>2021 M2</th>
+                                <th>2021 M3</th>
+                                <th>2021 M4</th>
+                                <th>2021 M5</th>
+                                <th>2021 M6</th>
+                                <th>2021 M7</th>
+                                <th>2021 M8</th>
+                                <th>2021 M9</th>
+                                <th>2021 M10</th>
+                                <th>2021 M11</th>
+                                <th>2021 M12</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for instance in MonthCLD %}
+                                <tr>
+                                    <td class="col-1">{{ instance.country_code }} </td>
+                                    <td class="col-1"> {{ instance.file_type }} </td>
+                                    <td class="col-1"> {{ instance.remarks }} </td>
+                                    <td class="col-1">{{ instance.isMarco }} </td>
+                                    <td class="col-1"> {{ instance.column_update }} </td>
+                                    <td class="col-1"> {{ instance.topic }} </td>
+                                    <td class="col-1"> {{ instance.url }} </td>
+                                    <td class="col-1">{{ instance.month_1 }} </td>
+                                    <td class="col-1"> {{ instance.month_2 }} </td>
+                                    <td class="col-1"> {{ instance.month_3 }} </td>
+                                    <td class="col-1">{{ instance.month_4}} </td>
+                                    <td class="col-1"> {{ instance.month_5 }} </td>
+                                    <td class="col-1"> {{ instance.month_6 }} </td>
+                                    <td class="col-1"> {{ instance.month_7 }} </td>
+                                    <td class="col-1"> {{ instance.month_8 }} </td>
+                                    <td class="col-1">{{ instance.month_9}} </td>
+                                    <td class="col-1"> {{ instance.month_10 }} </td>
+                                    <td class="col-1"> {{ instance.month_11 }} </td>
+                                    <td class="col-1"> {{ instance.month_12 }} </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block js%}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.24/af-2.3.6/b-1.7.0/b-colvis-1.7.0/b-html5-1.7.0/cr-1.5.3/fc-3.3.2/fh-3.1.8/sb-1.0.1/sp-1.2.2/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.24/af-2.3.6/b-1.7.0/b-colvis-1.7.0/b-html5-1.7.0/cr-1.5.3/fc-3.3.2/fh-3.1.8/sb-1.0.1/sp-1.2.2/datatables.min.js"></script>
+
+    {% load static %}
+    <script src="{% static 'js/custom_tabledata.js' %}"></script>
+{% endblock js%}
